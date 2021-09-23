@@ -98,4 +98,4 @@ pip install -e '.[dev]'
 pip install -e .
 
 # start test from tests/
-pytest -l test_contract.py 
+pytest -l test_payload.py 
