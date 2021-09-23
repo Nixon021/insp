@@ -15,7 +15,8 @@ REQUEST_DATA = {
     "payload": {
         "type": "get_weather",
         "city": "Omsk",
-        "country": "Russia"},
+        "country": "Russia"
+    },
     "UUID": "4221",
     "status": 0
 }
