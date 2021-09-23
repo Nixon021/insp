@@ -7,7 +7,7 @@ MESSAGE_TO_SKILL = {
         "original_text": "Какая погода в Омске?"
     },
     "UUID": "4221",
-    "status": 0
+    "status": 200
 }
 
 REQUEST_DATA = {
@@ -17,7 +17,7 @@ REQUEST_DATA = {
         "city": "Omsk",
         "country": "Russia"},
     "UUID": "4221",
-    "status": 0
+    "status": 200
 }
 
 RESPONSE_DATA = {
@@ -30,7 +30,7 @@ RESPONSE_DATA = {
         "degree": "C"
     },
     "UUID": "4221",
-    "status": 0
+    "status": 200
 }
 
 ANSWER_TO_USER = {
@@ -42,7 +42,7 @@ ANSWER_TO_USER = {
             {"text": "Чел, сиди лучше дома..."}
         ]
     },
-    "status": 0
+    "status": 200
 }
 
 
@@ -60,6 +60,9 @@ class TestMessageToSkill:
     def test_get_type_message(self):
         assert "MESSAGE_TO_SKILL" == self.response().type
 
+    def test_get_status(self):
+        assert 200 == self.response().status
+
 
 class TestAnswerToUser:
     @staticmethod
@@ -70,7 +73,7 @@ class TestAnswerToUser:
         assert "4221" == self.response().UUID
 
     def test_get_status(self):
-        assert 0 == self.response().status
+        assert 200 == self.response().status
 
     def test_get_item_0(self):
         assert "В Омске -23, ппц холодно" == self.response().payload['items'][0]['text']
@@ -85,13 +88,13 @@ class TestAnswerToUser:
 class TestRequestData:
     @staticmethod
     def response():
-        return AnswerToUser(**REQUEST_DATA)
+        return RequestData(**REQUEST_DATA)
 
     def test_get_uuid(self):
         assert "4221" == self.response().UUID
 
     def test_get_status(self):
-        assert 0 == self.response().status
+        assert 200 == self.response().status
 
     def test_get_type_message(self):
         assert "REQUEST_DATA" == self.response().type
@@ -112,7 +115,7 @@ class TestResponseData:
         assert "4221" == self.response().UUID
 
     def test_get_status(self):
-        assert 0 == self.response().status
+        assert 200 == self.response().status
 
     def test_get_type_message(self):
         assert "RESPONSE_DATA" == self.response().type
