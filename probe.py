@@ -1,0 +1,1 @@
+print('win' if 'Win' > 'fail' else 'fail')
